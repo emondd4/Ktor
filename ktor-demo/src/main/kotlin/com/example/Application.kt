@@ -7,5 +7,6 @@ import com.example.plugins.*
 fun main() {
     embeddedServer(Netty, port = 8080, host = "192.168.0.109") {
         configureRouting()
+        contactUsRouting()
     }.start(wait = true)
 }
