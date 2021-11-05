@@ -8,5 +8,6 @@ fun main() {
     embeddedServer(Netty, port = 8080, host = "192.168.0.109") {
         configureRouting()
         contactUsRouting()
+        urlParameterRouting()
     }.start(wait = true)
 }
