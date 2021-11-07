@@ -9,7 +9,7 @@ import io.ktor.serialization.*
 
 
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "192.168.0.109") {
+    embeddedServer(Netty, port = 8080, host = "192.168.1.195") {
         install(ContentNegotiation){
             json()
         }
