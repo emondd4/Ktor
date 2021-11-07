@@ -13,6 +13,7 @@ fun main() {
         install(ContentNegotiation){
             json()
         }
+        responseRouting()
         configureRouting()
         contactUsRouting()
         urlParameterRouting()
