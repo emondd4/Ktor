@@ -2,8 +2,11 @@ package com.example.plugins
 
 import com.example.model.UserInfo
 import io.ktor.application.*
+import io.ktor.http.HttpHeaders.ContentDisposition
 import io.ktor.response.*
 import io.ktor.routing.*
+import java.io.File
+import java.net.http.HttpHeaders
 
 fun Application.responseRouting(){
     routing {
@@ -19,5 +22,33 @@ fun Application.responseRouting(){
 
             call.respondText("Working Fine")
         }
+
+        get("/fileDownload") {
+            val file = File("files/image1.jpg")
+
+            call.response.header(
+                ContentDisposition,
+                io.ktor.http.ContentDisposition.Attachment.withParameter(
+                    io.ktor.http.ContentDisposition.Parameters.FileName, "downloadableImage.jpg"
+                ).toString()
+            )
+
+            call.respondFile(file)
+
+        }
+        get("/openFile") {
+            val file = File("files/image2.jpg")
+
+            call.response.header(
+                ContentDisposition,
+                io.ktor.http.ContentDisposition.Inline.withParameter(
+                    io.ktor.http.ContentDisposition.Parameters.FileName, "openFile.jpg"
+                ).toString()
+            )
+
+            call.respondFile(file)
+
+        }
+
     }
 }
