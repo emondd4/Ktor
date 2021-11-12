@@ -8,7 +8,6 @@ import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.serialization.*
 import org.ktorm.database.Database
-import org.ktorm.dsl.*
 
 
 fun main() {
@@ -16,17 +15,7 @@ fun main() {
         install(ContentNegotiation){
             json()
         }
-        responseRouting()
         configureRouting()
-        contactUsRouting()
-        urlParameterRouting()
-
-        val database = Database.connect(
-            url = "jdbc:mysql://localhost:3306/notes",
-            driver = "com.mysql.cj.jdbc.Driver",
-            user = "root",
-            password = ""
-        )
 
 //        database.insert(NotesEntity){
 //            set(it.title,"third")

@@ -10,6 +10,11 @@ import java.lang.Exception
 
 fun Application.configureRouting() {
 
+    responseRouting()
+    contactUsRouting()
+    urlParameterRouting()
+    notesRoutes()
+
     routing {
 
         get("/") {
